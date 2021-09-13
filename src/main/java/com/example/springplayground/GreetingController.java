@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
+    @GetMapping("/greeting/{id}/{name}")
+    public Greeting getGreetingWithPathVariables(Greeting greeting){
+        return greeting;
+    }
+
     @GetMapping("/greeting")
-    public Greeting getGreeting(@RequestParam int id, @RequestParam String name){
-        return new Greeting(id, name);
+    public Greeting getGreetingWithQueryString(Greeting greeting){
+        return greeting;
     }
 
 }
