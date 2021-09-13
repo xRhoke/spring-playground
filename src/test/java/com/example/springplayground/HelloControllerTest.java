@@ -7,6 +7,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,5 +30,6 @@ public class HelloControllerTest {
         RequestBuilder request = MockMvcRequestBuilders.get("/age?name=Elliott&age=28");
 
         this.mvc.perform(request).andExpect(status().isOk());
+        this.mvc.perform(request).andExpect(content().string("Elliott is 28 years old"));
     }
 }
