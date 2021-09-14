@@ -36,4 +36,8 @@ public class MathService {
         }
         return sum;
     }
+
+    public static int rectVolume(int x, int y, int z){
+        return x*y*z;
+    }
 }

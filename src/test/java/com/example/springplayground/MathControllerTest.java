@@ -42,4 +42,10 @@ public class MathControllerTest {
         RequestBuilder request = MockMvcRequestBuilders.post("/math/sum?n=2&n=4&n=1");
         this.mvc.perform(request).andExpect(content().string("2 + 4 + 1 = 7"));
     }
+
+    @Test
+    public void testCanGetRectangleVolume() throws Exception {
+        RequestBuilder request = MockMvcRequestBuilders.post("/math/volume/3/4/5");
+        this.mvc.perform(request).andExpect(content().string("The volume of a 3x4x5 rectangle is 60"));
+    }
 }

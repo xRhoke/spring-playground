@@ -3,6 +3,8 @@ package com.example.springplayground;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
+
 @RestController
 @RequestMapping("/math")
 public class MathController {
@@ -33,6 +35,11 @@ public class MathController {
         sumString += " = " + String.valueOf(MathService.sum(input.get("n")));
 
         return sumString;
+    }
+
+    @RequestMapping("/volume/{x}/{y}/{z}")
+    public String getVolume(@PathVariable int x, @PathVariable int y, @PathVariable int z){
+        return String.format("The volume of a %sx%sx%s rectangle is %s", x, y, z, MathService.rectVolume(x, y, z));
     }
 }
 
