@@ -4,6 +4,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.Path;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/math")
@@ -40,6 +41,18 @@ public class MathController {
     @RequestMapping("/volume/{x}/{y}/{z}")
     public String getVolume(@PathVariable int x, @PathVariable int y, @PathVariable int z){
         return String.format("The volume of a %sx%sx%s rectangle is %s", x, y, z, MathService.rectVolume(x, y, z));
+    }
+
+    @PostMapping("/area")
+    public String getArea(@RequestParam Map<String, String> params){
+        if (params.get("type").equals("circle")) {
+            return String.format("Area of a %s with radius %s is %s", params.get("type"), params.get("radius"), MathService.circleArea(Integer.parseInt(params.get("radius"))));
+        }
+        if (params.get("type").equals("rectangle")) {
+            return String.format("Area of a %sx%s rectangle is %s", params.get("width"), params.get("height"), MathService.rectArea(Integer.parseInt(params.get("height")), Integer.parseInt(params.get("width"))));
+        }
+        return "Invalid";
+
     }
 }
 

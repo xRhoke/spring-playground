@@ -40,4 +40,12 @@ public class MathService {
     public static int rectVolume(int x, int y, int z){
         return x*y*z;
     }
+
+    public static int circleArea(int radius) {
+        return (int) (Math.PI*(radius*radius));
+    }
+
+    public static int rectArea(int height, int width) {
+        return height*width;
+    }
 }
