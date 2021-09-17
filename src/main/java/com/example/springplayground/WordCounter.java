@@ -3,10 +3,12 @@ package com.example.springplayground;
 import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class WordCounter {
     public Map<String, Integer> count(String message){
         String[] splitMessage = message.split(" ");
