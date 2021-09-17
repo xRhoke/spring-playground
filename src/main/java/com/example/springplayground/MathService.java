@@ -41,8 +41,8 @@ public class MathService {
         return x*y*z;
     }
 
-    public static int circleArea(int radius) {
-        return (int) (Math.PI*(radius*radius));
+    public static double circleArea(int radius) {
+        return Math.PI*(radius*radius);
     }
 
     public static int rectArea(int height, int width) {

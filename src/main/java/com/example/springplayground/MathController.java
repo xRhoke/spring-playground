@@ -52,7 +52,6 @@ public class MathController {
             return String.format("Area of a %sx%s rectangle is %s", params.get("width"), params.get("height"), MathService.rectArea(Integer.parseInt(params.get("height")), Integer.parseInt(params.get("width"))));
         }
         return "Invalid";
-
     }
 }
 

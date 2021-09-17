@@ -54,8 +54,10 @@ public class MathControllerTest {
 
     @Test
     public void testCanGetAreaOfCirclesAndRectangles() throws Exception {
-        MockHttpServletRequestBuilder request = post("/math/area").contentType(MediaType.APPLICATION_FORM_URLENCODED).param("type", "circle").param("radius", "4");
-        this.mvc.perform(request).andExpect(content().string("Area of a circle with radius 4 is 50"));
+        MockHttpServletRequestBuilder request = post("/math/area").contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .param("type", "circle")
+                .param("radius", "4");
+        this.mvc.perform(request).andExpect(content().string("Area of a circle with radius 4 is 50.26548245743669"));
 
         request = post("/math/area").contentType(MediaType.APPLICATION_FORM_URLENCODED).param("type", "rectangle").param("width", "4").param("height","12");
         this.mvc.perform(request).andExpect(content().string("Area of a 4x12 rectangle is 48"));
